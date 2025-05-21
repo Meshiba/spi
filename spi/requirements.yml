@@ -1,4 +1,4 @@
-name: sppi
+name: spi
 channels:
 - pytorch
 - defaults

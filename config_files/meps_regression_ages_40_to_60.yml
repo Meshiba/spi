@@ -11,7 +11,7 @@ run_params:
   alpha: []  # This parameter is automatically set when running an experiment with CQR, based on the dataset name.
   seed: 42
   n_seeds: 100
-  methods: ['SC', 'SC (synth)', 'SPPI']
+  methods: ['SC', 'SC (synth)', 'SPI']
   
   
   # size of minority and majority
@@ -19,5 +19,5 @@ run_params:
   n_test: 500
   n_cal_maj: 1000
   
-  # SPPI parameters
+  # SPI parameters
   beta: 0.4

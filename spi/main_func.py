@@ -12,14 +12,14 @@ from algo import get_results
 classification_method_objects = {
     'SC': SplitConformal,
     'SC (synth)': MajSplitConformal,
-    'SPPI': SPPredictiveInference,
-    'SPPI [subset]': SPPredictiveInferenceClustered,
+    'SPI': SPPredictiveInference,
+    'SPI [subset]': SPPredictiveInferenceClustered,
 }
 
 regression_method_objects = {
     'SC': SplitConformalRegression,
     'SC (synth)': MajSplitConformalRegression,
-    'SPPI': SPPredictiveInferenceRegression,
+    'SPI': SPPredictiveInferenceRegression,
 }
 
 
@@ -36,7 +36,7 @@ def run_comparison(dataset='',
                    seed=42, n_seeds=100, methods=None,
                    **kwargs):
     if methods is None:
-        methods = ['SC', 'SC (synth)', 'SPPI']
+        methods = ['SC', 'SC (synth)', 'SPI']
     if isinstance(alpha, float):
         alpha = [alpha]
     results = pd.DataFrame({})
@@ -55,7 +55,7 @@ def run_comparison(dataset='',
                                                                      X_minority=X_minority, y_minority=y_minority,
                                                                      X_majority=X_majority, y_majority=y_majority,
                                                                      exact=kwargs.get('class_conditional', False),
-                                                                     only_maj_exact='SPPI [subset]' in methods and not kwargs.get('class_conditional', False),
+                                                                     only_maj_exact='SPI [subset]' in methods and not kwargs.get('class_conditional', False),
                                                                      **kwargs
                                                                      )
         classes_min, classes_maj = get_classes_by_dataset_name(dataset, X_minority_calib.shape)

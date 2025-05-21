@@ -12,7 +12,7 @@ run_params:
   n_seeds: 100
 
   # methods to run and compare
-  methods: ['SC', 'SC (synth)', 'SPPI']
+  methods: ['SC', 'SC (synth)', 'SPI']
   class_conditional: true
  
   # size of minority and majority
@@ -20,6 +20,6 @@ run_params:
   n_test: 15000  # 500 * 30
   n_cal_maj: 30000  # 1000 * 30
   
-  # SPPI parameters
+  # SPI parameters
   beta: 0.4
 

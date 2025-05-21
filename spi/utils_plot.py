@@ -9,7 +9,7 @@ from transporter.utils import get_wc_bounds
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-palette4fig = {'SC': 'red', 'SC (synth)': 'orange', 'SPPI': 'dodgerblue', 'SPPI [subset]': 'limegreen'}
+palette4fig = {'SC': 'red', 'SC (synth)': 'orange', 'SPI': 'dodgerblue', 'SPI [subset]': 'limegreen'}
 desc4paper_dict = {'n_cal': r'$m$', 'alpha': r'$\alpha$',
                    'Conditional Coverage': 'Coverage',
                    'Conditional Length': 'Size',
@@ -17,10 +17,10 @@ desc4paper_dict = {'n_cal': r'$m$', 'alpha': r'$\alpha$',
                    'n_cal_cond': r'$m$',
                    'age_range': 'Age range'}
 method2legend = {
-                 'SPPI': 'SPPI', 'SC (synth)': 'OnlySynth', 'SPPI [subset]': 'SPPI-Subset', 'SC': 'OnlyReal'
+                 'SPI': 'SPI', 'SC (synth)': 'OnlySynth', 'SPI [subset]': 'SPI-Subset', 'SC': 'OnlyReal'
                  }
-method2marker = {'SPPI': 'o', 'SC (synth)': 'D', 'SPPI [subset]': '*', 'SC': '^'}
-hue_order = ['SC', 'SC (synth)', 'SPPI', 'SPPI [subset]']
+method2marker = {'SPI': 'o', 'SC (synth)': 'D', 'SPI [subset]': '*', 'SC': '^'}
+hue_order = ['SC', 'SC (synth)', 'SPI', 'SPI [subset]']
 
 class2desc_dict = {
                     '321': 'Admiral', 
@@ -295,7 +295,7 @@ def filter_and_plot(save_path, results, x, methods2plot=None, conditional=False,
         curr_results['Class'] = curr_results['Class'].apply(get_desc_imagenet_class)
     
     if to_table:
-        method_order = ['SC', 'SC (synth)', 'SPPI', 'SPPI [subset]']
+        method_order = ['SC', 'SC (synth)', 'SPI', 'SPI [subset]']
         if methods2plot is not None:
             curr_results = curr_results.loc[curr_results['Method'].isin(methods2plot)]
         grouped = curr_results.groupby([x, 'Method'])[['Conditional Coverage', 'Conditional Length']]
@@ -344,8 +344,8 @@ def filter_and_plot(save_path, results, x, methods2plot=None, conditional=False,
         min_k = min(k_values_int)
         # Filter for plotting
         curr_results = curr_results[
-            (curr_results['Method'] == 'SPPI [subset]') | 
-            ((curr_results['Method'].isin(['SC', 'SPPI'])) & (curr_results['k'] == str(min_k)))
+            (curr_results['Method'] == 'SPI [subset]') | 
+            ((curr_results['Method'].isin(['SC', 'SPI'])) & (curr_results['k'] == str(min_k)))
         ]
     x_values = curr_results[x].unique() if x is not None else None
     if conditional:  # conditional

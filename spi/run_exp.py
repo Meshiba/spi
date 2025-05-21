@@ -47,7 +47,7 @@ def main(config_path, save_path, **kwargs):
         results.to_pickle(curr_save_path + '/results/results.pkl')
         # plot results
         os.makedirs(curr_save_path + '/plots/', exist_ok=True)
-        subset_exp = 'SPPI [subset]' in curr_params['methods']
+        subset_exp = 'SPI [subset]' in curr_params['methods']
         conditional = curr_params.get('class_conditional', False)
         for alpha_ in curr_params['alpha']:
             os.makedirs(curr_save_path + '/plots/' + f'alpha_{alpha_}/', exist_ok=True)

@@ -25,9 +25,9 @@ def get_run_description(**kwargs):
     run_name += kwargs['model_name'] + '_'
     run_name += 'n_cal_real_' + str(kwargs['n_cal']) + '_n_cal_maj_' + str(kwargs['n_cal_maj']) + '_n_test_min_' \
                + str(kwargs['n_test'])
-    if kwargs['methods'] is None or any(['SPPI' in m for m in kwargs['methods']]):
+    if kwargs['methods'] is None or any(['SPI' in m for m in kwargs['methods']]):
         run_name += '_beta_' + str(kwargs['beta'])
-        if 'SPPI [subset]' in kwargs['methods']:
+        if 'SPI [subset]' in kwargs['methods']:
             run_name += '_k_' + str(kwargs['k']) + '_dist_' + kwargs['dist_criterion']
     run_name += '_q_' + str(kwargs['alpha']) + '_n_seeds_' + str(kwargs['n_seeds'])
     return run_name

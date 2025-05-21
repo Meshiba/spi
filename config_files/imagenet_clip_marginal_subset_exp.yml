@@ -12,7 +12,7 @@ run_params:
   n_seeds: 100
   
   # methods to run and compare
-  methods: ['SC', 'SPPI', 'SPPI [subset]']
+  methods: ['SC', 'SPI', 'SPI [subset]']
   class_conditional: false
  
   # size of minority and majority
@@ -20,7 +20,7 @@ run_params:
   n_test: 15000
   n_cal_maj: 1500
  
-  # SPPI parameters
+  # SPI parameters
   beta: 0.4
   k: 20
   dist_criterion: 'cramer-von-mises'
